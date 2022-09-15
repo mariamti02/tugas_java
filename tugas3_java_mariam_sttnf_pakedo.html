@@ -1,0 +1,106 @@
+<script laguage="javascript">
+    //array object
+    let m1 = {name: "Ana" , value: 75}
+    let m2 = {name: "Eni" , value: 55}
+    let m3 = {name: "Dedi" , value: 95}
+    let m4 = {name: "Deka" , value: 88}
+    let m5 = {name: "Deden" , value: 25}
+    let m6 = {name: "Bayu" , value: 65}
+
+    //memberikan deskripsi array 
+    let mahasiswa = [m1, m2, m3, m4, m5, m6];
+
+/*
+    for(m of mahasiswa) {
+    let ket = ( m.nilai >= 60) ? "Lulus" : "Gagal";
+    document.write(`<br/>Nama : ${m.nama} - Nilai : ${m.nilai} - Keterangan : ${ket}`);
+    }
+*/
+
+
+</script>
+
+<style>
+    * {
+        padding: 10px;
+       
+    }
+
+    td {
+        text-align: center;
+     }
+</style>
+<h3 align="center">Daftar Nilai Mahasiswa</h3>
+    <table align="center" cellspacing="0" cellpadding="10" width="80%">
+        <thead>
+            <tr bgcolor="D2B4DE" border="1">
+                <th>No.</th>
+                <th>Name</th>
+                <th>Value</th> 
+                <th>Grade</th>
+                <th>Predikat</th>
+                <th>Keterangan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script>
+                let no = 1;
+                let grade, predikat, warna;
+
+                //for of dan switch case untuk mencari nilai serta predikat yang sesuai
+                for(m of mahasiswa){
+                   
+                    if(m.value >= 26 && m.value <= 65){
+                        grade = "D";
+                    }else if(m.value >= 66 && m.value <= 75){
+                        grade = "C";
+                    }else if(m.value >= 76 && m.value <= 85){
+                        grade = "B";
+                    }else if(m.value >= 86 && m.value <= 100){
+                        grade = "A"
+                    }else grade = "E";
+            
+
+            switch(grade){
+               case 'A': 
+                  predikat = "Sangat Baik";
+                  break;
+               case 'B':
+                  predikat = "Bagus";
+                  break;
+               case 'C':
+                  predikat = "Cukup Bagus";
+                  break;
+               case 'D': 
+                  predikat = "Kurang Bagus";
+                  break;
+               default: 
+                  predikat = "Buruk";
+                  break; 
+            }
+
+
+            //ternanry operator memberikan kases keterangan dan waran sesuai proposisi
+            let keterangan = (m.value >= 50) ? "Lulus" : "Gagal";
+            warna = (no % 2 == 0) ? "Silver" : "White";
+
+
+            //output dengan menjabarkan variabel data diterima
+            document.write(
+                `<tr bgcolor="${warna}">
+                    <td>${no++}</td>
+                    <td>${m.name}</td>
+                    <td>${m.value}</td>   
+                    <td>${grade}</td>
+                    <td>${predikat}</td>
+                    <td>${keterangan}</td>
+                </tr>`
+            );
+        }
+            
+
+
+
+            </script>
+        </tbody>
+    </table>
